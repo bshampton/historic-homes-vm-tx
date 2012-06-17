@@ -1,0 +1,21 @@
+<div class="interior">
+  <%= render "/header" %>
+  <div class="main">
+    <div class="padding">
+      <h1>Map &amp; Directions</h1>
+      <%= image_tag "header_line.png", :height => "4", :width => "100%" %><br />
+      <div class="artist">
+        <iframe width="300" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps/ms?msa=0&amp;msid=200363800223097799790.0004c2781a901ccdb05fd&amp;hl=en&amp;ie=UTF8&amp;t=m&amp;ll=41.3174,-72.932053&amp;spn=0.038679,0.051327&amp;z=13&amp;output=embed"></iframe><br />
+        <small><a href="https://maps.google.com/maps/ms?msa=0&amp;msid=200363800223097799790.0004c2781a901ccdb05fd&amp;hl=en&amp;ie=UTF8&amp;t=m&amp;ll=41.3174,-72.932053&amp;spn=0.038679,0.051327&amp;z=13&amp;source=embed" style="color:#0000FF;text-align:left">View in a larger map</a></small><br/>
+        <br />
+        <a href="http://artidea.org/driving-directions" onClick="_gaq.push(['_trackEvent', 'Outbound', 'Arts_idea_driving']);">Driving Directions</a><br />
+        <br />
+        <a href="/directions/parking">Parking Information</a><br />
+        <br />
+        <a href="http://artidea.org/venues" onClick="_gaq.push(['_trackEvent', 'Outbound', 'Arts_idea_venue']);">Venue Information</a><br />
+        <br />
+      </div>  
+    </div>
+  </div>
+  <%= render "/footer" %>
+</div>

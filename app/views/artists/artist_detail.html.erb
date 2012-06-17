@@ -1,0 +1,75 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+ 
+    var imageHeight, wrapperHeight, overlap, container = $('.image-wrap');  
+ 
+    function centerImage() {
+        imageHeight = container.find('img').height();
+        wrapperHeight = container.height();
+        overlap = (wrapperHeight - imageHeight) / 2;
+        container.find('img').css('margin-top', overlap);
+    }
+     
+    $(window).on("load resize", centerImage);
+     
+    var el = document.getElementById('wrapper');
+    if (el.addEventListener) {  
+        el.addEventListener("webkitTransitionEnd", centerImage, false); // Webkit event
+        el.addEventListener("transitionend", centerImage, false); // FF event
+        el.addEventListener("oTransitionEnd", centerImage, false); // Opera event
+    }
+ 
+});
+
+</script>
+
+<div class="interior">
+  <%= render "/header" %>
+  <div class="main">
+    <div class="padding">
+      <h1><%= @artist.name %></h1>
+      <%= image_tag "header_line.png", :height => "4", :width => "100%" %><br />
+      <div class="artist">
+        <div class="image-wrap" id="wrapper">
+          <img src="https://s3.amazonaws.com/msg-att-artfest/medium/<%= @artist.photo_file_name %>" alt="">
+        </div>
+        
+        <% @artist.events.each do |event| %>
+
+          <% if  !@last_location.eql? event.location.name %>
+            <br /><%= event.location.name %><br />
+            <% @last_location =  event.location.name %>
+          <% end %>
+         
+          <p><%= event.date.strftime("%a").upcase %> <%= event.date.strftime("%m") %>/<%= event.date.strftime("%d") %>, <%= event.start_hour %>:<%= event.start_minute == 0 ? "00" : event.start_minute %> <%= event.timeperiod %> - <%= event.duration %></p>
+          <% if  !@last_location.eql? event.location.name %>
+            <br/>
+          <% end %>
+        <% end %>
+        <br/>
+        <%= @artist.description.html_safe %><br />
+        <br />
+        <% if (@artist.link1 && !@artist.link1.empty?) || 
+              (@artist.link2 && !@artist.link2.empty?) || 
+              (@artist.link3 && !@artist.link3.empty?) || 
+              (@artist.link4 && !@artist.link4.empty?) %>
+          <b>Additional resources:</b><br />       
+          <ul>
+            <% if @artist.link1 && !@artist.link1.empty? %>
+              <li><%=  @artist.link1.html_safe %></li>
+            <% end %>
+            <% if @artist.link2 && !@artist.link2.empty? %>
+              <li><%=  @artist.link2.html_safe %></li>
+            <% end %>
+            <% if @artist.link3 && !@artist.link3.empty? %>
+              <li><%=  @artist.link3.html_safe %></li>
+            <% end %>
+            <% if @artist.link4 && !@artist.link4.empty? %>
+              <li><%=  @artist.link4.html_safe %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  <%= render "/footer" %>
+</div>

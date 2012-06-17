@@ -1,0 +1,32 @@
+<div class="interior">
+  <%= render "/header" %>
+  <div class="main">
+    <div class="padding">
+      <h1>Featured Artist Calendar</h1>
+      <%= image_tag "header_line.png", :height => "4", :width => "100%" %><br />
+      <%= image_tag "calendar_icon.png", :height => "16", :width => "16", :align => "left" %><h4><a href="http://artidea.org/calendar" onClick="_gaq.push(['_trackEvent', 'Outbound', 'Arts_idea_calendar']);">Full Festival Calendar</a></h4>
+      <hr>
+      <% @events.each do |event| %>        
+          <div class="artist">
+            <div class="leftalign">
+              <div style="position:relative;">
+                <% if !@thisDate.eql? event.date 
+                  @thisDate = event.date -%>
+                  <div id="date" style="position:absolute;z-index:1">
+                    <%= @thisDate.strftime("%B").upcase %> <h1><%= @thisDate.strftime("%d") %> </h1>
+                  </div> 
+                  <%= image_tag "date_background.png", :size => "52x48" %>
+                <% end -%>
+              </div>
+            </div>
+            <div class="rightalign">
+              <p><%= event.start_hour %>:<%= event.start_minute == 0 ? "00" : event.start_minute %> <%= event.timeperiod %></p>
+              <a href="/artists/<%= event.artist.id %>"><%= event.name %></a> (<%= event.duration %>)
+            </div>
+          </div>
+          <hr>
+      <% end %>
+    </div><!--! end of .padding -->
+  </div><!--! end of .main -->
+  <%= render "/footer" %>
+</div><!--! end of .interior -->

@@ -1,0 +1,35 @@
+<!doctype html>
+<!-- Conditional comment for mobile ie7 blogs.msdn.com/b/iemobile/ -->
+<!--[if IEMobile 7 ]>    <html class="no-js iem7" lang="en"> <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Historic Homes of Valley Mills, TX<%= @title %></title>
+  <meta name="description" content="">
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+ <!-- <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/h/apple-touch-icon.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/m/apple-touch-icon.png">
+  <link rel="apple-touch-icon-precomposed" href="img/l/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="img/l/apple-touch-icon.png"> -->
+
+  <meta http-equiv="cleartype" content="on">
+
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+
+</head>
+
+<body>
+
+  <div id="container">
+    <%= yield %>
+  </div> <!--! end of #container -->
+
+</body>
+</html>

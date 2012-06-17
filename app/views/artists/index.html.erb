@@ -1,0 +1,37 @@
+<div class="interior">
+  <%= render "/header" %>
+  <div class="main">
+    <div class="padding">
+      <h1>Featured Artists</h1>
+      <%= image_tag "header_line.png", :height => "4", :width => "100%" %><br />
+      <br />
+      <% @events.each do |event| %>
+        <% if !@current_category.eql? event.category.name  
+          @current_category = event.category.name -%>
+          <h2><%= @current_category %></h2>
+        <% end -%>
+         
+          <% if !@current_artist.eql? event.artist.name 
+            @current_artist = event.artist.name -%>
+           <hr/>
+           <div class="artist">
+             <div class="leftalign">
+                <img src="https://s3.amazonaws.com/msg-att-artfest/medium/<%= event.artist.photo_file_name %>" width="52" height="48">
+              </div>
+              <div class="rightalign">
+                <h3><a href="/artists/<%= event.artist.id %>"><%= @current_artist %></a></h3>
+                <%= event.location.name %><br />
+                <p><%= event.date.strftime("%a").upcase %> <%= event.date.strftime("%m") %>/<%= event.date.strftime("%d") %>, <%= event.start_hour %>:<%= event.start_minute == 0 ? "00" : event.start_minute %> <%= event.timeperiod %></p>
+              </div>
+            </div>
+          <% else %> 
+            <div style="margin:0px;padding:3px 0px 0px 60px;">
+              <p style="color: #808080; padding:0px; margin: -10px 0px 10px; font:bold 11px/16px Arial; text-transform:uppercase; "><%= event.date.strftime("%a").upcase %> <%= event.date.strftime("%m") %>/<%= event.date.strftime("%d") %>, <%= event.start_hour %>:<%= event.start_minute == 0 ? "00" : event.start_minute %> <%= event.timeperiod %></p>
+            </div>
+          <% end -%>        
+      <% end %>
+    </div>
+  </div>
+  <%= render "/footer" %>
+</div>
+    
