@@ -26,10 +26,14 @@
 </head>
 
 <body>
-
-  <div id="container">
-    <%= yield %>
-  </div> <!--! end of #container -->
-
+    <%= render "/header" %>
+    <div class="colmask holygrail">
+      <div class="colmid">
+        <div class="colleft">
+              <%= yield %>
+          </div>
+        </div>
+      </div>
+    <%= render "/footer" %>
 </body>
 </html>

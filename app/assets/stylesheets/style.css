@@ -64,42 +64,90 @@ td { vertical-align: top; }
 
 /* ==|== primary styles =====================================================
    ========================================================================== */
+  h2,h3 {
+    padding-top: 10px
+  }
 
+  #header {
+        clear:both;
+        float:left;
+        width:100%;
+        margin-bottom: 10px;
+        border-bottom:1px solid #000;
+    }
 
-.container {margin:0px;padding:0px;color:#808080;}
-/*.home {background:#e0e0e0 url(/assets/background.png) no-repeat top left;min-width:300px;min-height:550px;}*/
-.logo {float:right;text-align:right;padding:30px 5px 50px 0px;}
-.nav {float:right;text-align:right;clear:both;padding-right:12px;}
-.nav img {padding-bottom: 5px;}
-#att {top:300px;left:12px;}
+  /* column container */
+  .colmask {
+    position:relative;    /* This fixes the IE7 overflow hidden bug and stops the layout jumping out of place */
+      clear:both;
+      float:left;
+        width:100%;       /* width of whole page */
+    overflow:hidden;    /* This chops off any overhanging divs */
+  }
+  /* holy grail 3 column settings */
+  .holygrail {
+      background:#eee;      /* Right column background colour */
+  }
+    .holygrail .colmid {
+        float:left;
+        width:200%;
+        margin-left:-200px;   /* Width of right column */
+        position:relative;
+        right:100%;
+        background:#fff;      /* Centre column background colour */
+    }
+    .holygrail .colleft {
+        float:left;
+        width:100%;
+        margin-left:-50%;
+        position:relative;
+        left:400px;           /* Left column width + right column width */
+        background:#f4f4f4;     /* Left column background colour */
+    }
+    .holygrail .col1wrap {
+        float:left;
+      width:50%;
+      position:relative;
+      right:200px;          /* Width of left column */
+      padding-bottom:1em;   /* Centre column bottom padding. Leave it out if it's zero */
+  }
+  .holygrail .col1 {
+        margin:0 215px;       /* Centre column side padding:
+                              Left padding = left column width + centre column left padding width
+                              Right padding = right column width + centre column right padding width */
+        position:relative;
+      left:200%;
+      overflow:hidden;
+  }
+    .holygrail .col2 {
+        float:left;
+        float:right;      /* This overrides the float:left above */
+        width:170px;          /* Width of left column content (left column width minus left and right padding) */
+        position:relative;
+        right:15px;           /* Width of the left-had side padding on the left column */
+    }
+    .holygrail .col3 {
+        float:left;
+        float:right;      /* This overrides the float:left above */
+        width:170px;          /* Width of right column content (right column width minus left and right padding) */
+        margin-right:45px;    /* Width of right column right-hand padding + left column left and right padding */
+        position:relative;
+        left:50%;
+    }
+  /* Footer styles */
+  #footer {
+        clear:both;
+        float:left;
+        width:100%;
+    border-top:1px solid #000;
+    }
+    #footer p {
+        padding:10px;
+        margin-top:0;
+    }
+    /* --> */
 
-/*.interior {background:#ffffff url(/assets/background_int.png) no-repeat top left;min-width:300px;min-height:480px;}*/
-.interior .header {text-align:left;padding:10px;}
-.interior .header .left {float:left;padding-top:8px;}
-.interior .header .right {float:right;}
-
-.interior .main {margin:0px;padding:0px;background:none;clear:both;}
-.interior .main .padding {padding:20px 12px 12px 12px;}
-.interior .main .padding h1 {font:bold 19px/19px Arial;color:#808080;margin:0px 0px -3px 0px;padding:0px;}
-.interior .main .padding h2 {font:bold 11px/14px Arial;color:#808080;text-transform:uppercase;margin:0px;padding:5px 0px 3px 0px;}
-.interior .main .artist {font:12px/15px Arial;color:#808080;padding:9px 0px 9px 0px;}
-.interior .main .artist .leftalign {float:left;margin:0px;padding:0px 0px 10px 0px;}
-.interior .main .artist .rightalign {margin:0px;padding:3px 0px 0px 60px;}
-.interior .main .padding img {margin-right:3px;}
-.interior .main .padding h3 {font:bold 13px/18px Arial;color:#0670b4;margin:0px;padding:0px 0px 0px 0px;}
-.interior .main .padding h4 {font:11px/16px Arial;color:#0670b4;margin:2px 0px 5px 0px;padding:0px;}
-.interior .main .padding #date {font:bold 9px/9px Arial;color:#ffffff;text-align:center;width:52px;margin:10px 0px 0px 0px;padding:0px;}
-.interior .main .padding #date h1{font: 24px/24px Arial;color:#ffffff;margin:-1px 0px 0px -1px;padding:0px;}
-.interior .main .padding img.map {border: solid 1px #878787;}
-.interior .main .padding ul {margin:0px 0px 0px 12px;padding:3px 0px 0px 0px;}
-.interior .main .padding ul li {padding:0px 0px 10px 0px;margin:0px 0px 0px 3px;list-style-image: url(/assets/arrow.png);}
-.interior .main .padding p {padding:0px;margin:0px;font:bold 11px/16px Arial;text-transform:uppercase;}
-
-.interior .footer {font:11px/14px Arial;color:#808080;margin-top:20px;margin-left: 10px;}
-.home .footer {width:99%;font:10px/12px Arial;color:#808080;clear:both;text-align:right;margin-left: -15px; margin-right: 0px;}
-.home .footer .padding{padding:0px 12px 0px 12px;}
-
-.image-wrap {max-height: 340px;overflow: hidden;max-width: 800px;       
+.image-wrap {max-height: 340px;overflow: hidden;max-width: 800px;
 -webkit-transition: max-width .5s ease-out;  /* Saf3.2+, Chrome */
 -moz-transition: max-width .5s ease-out;  /* FF4+ */
 -ms-transition: max-width .5s ease-out;  /* IE10? */
@@ -113,7 +161,7 @@ transition: max-width .5s ease-out;
 -o-transition: margin-top .5s ease-out;  /* Opera 10.5+ */
 transition: margin-top .5s ease-out;
 }
-     
+
 
 
 
